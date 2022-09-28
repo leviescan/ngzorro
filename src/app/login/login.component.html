@@ -32,20 +32,28 @@
     <p class="control">
     <label for="" class="media-centered"> Show password </label>
     </p> 
-    <p class="control" style="margin-left: 53px;">
-    <a class="media-right">  Forgot password</a>
+    <p class="control is-responsive" style="margin-left: 53px;">
+    <a class="media-right is-responsive">  Forgot password</a>
     </p>
   </div>
 
   <div class="field">
     <p class="control">
-      <button class="button is-primary is-fullwidth" >
-        Login
+      <button class="button is-primary is-fullwidth is-outlined">
+        <span class="icon">
+          <i class="fab fa-twitter"></i>
+        </span>
+        <span>Log In</span>
       </button>
     </p>
   </div>
 </form>
 </div>
+
+
+
+
+
 <div class="column is-3">
 
  <div class="box "> 
@@ -83,7 +91,7 @@
         <a class="login-form-forgot">Forgot password</a>
       </div>
     </div>
-    <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'" style="border-radius: 5px;">Log in</button>
+    <button nz-button class="login-form-button login-form-margin is-focused" [nzType]="'primary'" style="border-radius: 5px;">Log in</button>
     Or
     <a>register now!</a>
   </form>
