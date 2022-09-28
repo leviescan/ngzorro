@@ -1,0 +1,102 @@
+
+<div class="columns is-centered" style="margin-top: 200px;">
+    <div class="column is-4">
+
+<form class="box" style="border-radius: 20px;">
+<div class="field">
+    <p class="control has-icons-left has-icons-right">
+      <input class="input" type="email" placeholder="Email" style="border-radius: 5px;">
+      <span class="icon is-small is-left">
+        <i class="fas fa-envelope"></i>
+      </span>
+      <span class="icon is-small is-right">
+        <i class="fas fa-check"></i>
+      </span>
+    </p>
+  </div>
+  <div class="field">
+    <p class="control has-icons-left has-icons-right">
+      <input class="input" [type]="hide ? 'password' : 'text'" placeholder="Password" style="border-radius: 5px;">
+      <span class="icon is-small is-left">
+        <i class="fas fa-lock"></i>
+      </span>
+      <span class="icon is-small is-right">
+        <i   class="fas fa-check"></i>
+      </span>
+    </p>
+  </div>
+  <div class="field is-grouped is-grouped-multiline">
+    <p class="control">
+    <nz-switch  nzCheckedChildren="shown" nzUnCheckedChildren="hidden"  (click)="hide = !hide"></nz-switch>
+    </p>
+    <p class="control">
+    <label for="" class="media-centered"> Show password </label>
+    </p> 
+    <p class="control" style="margin-left: 53px;">
+    <a class="media-right">  Forgot password</a>
+    </p>
+  </div>
+
+  <div class="field">
+    <p class="control">
+      <button class="button is-primary is-fullwidth" >
+        Login
+      </button>
+    </p>
+  </div>
+</form>
+</div>
+<div class="column is-3">
+
+ <div class="box "> 
+<form nz-form  class="login-form" style="border-radius: 20px;">
+    <nz-form-item>
+      <nz-form-control nzErrorTip="Please input your username!">
+        <nz-input-group [nzSuffix]="suffixInfo" [nzPrefix]="prefixUser" style="border-radius: 5px;">
+          <input type="text" nz-input  placeholder="Username" style="border-radius: 5px;">
+        </nz-input-group>
+        <ng-template #prefixUser><span nz-icon > <i class="fas fa-user"></i></span></ng-template>
+        <ng-template #suffixInfo>
+          <span nz-icon nz-tooltip nzTooltipTitle="Extra information" nzType="info-circle"></span>
+        </ng-template>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-control nzErrorTip="Please input your username!">
+            <nz-input-group [nzSuffix]="suffix" [nzPrefix]="prefix" style="border-radius: 5px;">
+              <input [type]="hide ? 'password' : 'text'" nz-input   style="border-radius: 5px;">
+            </nz-input-group>
+            <ng-template #prefix><span nz-icon > <i class="fas fa-lock"></i></span></ng-template>
+            <ng-template #suffix>
+              <span nz-icon nz-tooltip (click)="hide = !hide" > <i   class="fa-sharp fa-solid  {{hide ? 'fa-eye-slash' : 'fa-eye'}}"></i></span>
+            </ng-template>
+          </nz-form-control>
+    </nz-form-item>
+    <div nz-row class="login-form-margin">
+      <div nz-col [nzSpan]="12">
+        <label nz-checkbox >
+          <span>Remember me</span>
+        </label>
+        
+      </div>
+      <div nz-col [nzSpan]="12">
+        <a class="login-form-forgot">Forgot password</a>
+      </div>
+    </div>
+    <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'" style="border-radius: 5px;">Log in</button>
+    Or
+    <a>register now!</a>
+  </form>
+</div> 
+
+</div>
+
+</div>
+
+<nz-input-group [nzSuffix]="suffixTemplateInfo" [nzPrefix]="prefixTemplateUser">
+    <input type="text" nz-input placeholder="Enter your username" />
+  </nz-input-group>
+  <ng-template #prefixTemplateUser><span nz-icon > <i class="fas fa-lock"></i></span></ng-template>
+  <ng-template #suffixTemplateInfo>
+    <span nz-icon nz-tooltip nzTooltipTitle="Extra information" nzType="info-circle"></span>
+  </ng-template>

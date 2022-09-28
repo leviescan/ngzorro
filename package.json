@@ -20,6 +20,7 @@
     "@angular/router": "^14.0.0",
     "@types/jquery": "^3.5.14",
     "bulma": "^0.9.4",
+    "bulma-switch": "^2.0.4",
     "jquery": "^3.6.1",
     "ng-zorro-antd": "^14.0.0",
     "rxjs": "~7.5.0",

@@ -33,4 +33,6 @@ export class TableComponent implements OnInit {
   }
   data: DataItem[] = [];
 
+  
+
 }
