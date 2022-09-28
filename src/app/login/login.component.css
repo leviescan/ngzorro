@@ -13,3 +13,9 @@
 .login-form-button {
   width: 100%;
 }
+
+@media (min-width: 380px) {
+  .bo {
+    margin-left: auto;
+  }
+}
