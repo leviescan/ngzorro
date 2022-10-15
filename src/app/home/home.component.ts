@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
 
   public readData(){
 
-    this.apiS.get('http://localhost:3000/crud/read')
+    this.apiS.get('http://localhost:3000/user')
     .subscribe(
       re => { this.imagenes = re; console.log(this.imagenes);}
 

@@ -11,12 +11,20 @@ export class LoginComponent implements OnInit {
 
   hide:boolean=true;
   public form!: FormGroup;
+  public form1!: FormGroup;
 
   constructor( private fb:FormBuilder) {
     this.form = this.fb.group({
       email: ["",[Validators.required,Validators.email]],
       password:["",[Validators.required, Validators.minLength(7)]],
       show:["",[Validators.required, Validators.requiredTrue]]
+
+    });
+
+    this.form1 = this.fb.group({
+      emai: ["",[Validators.required,Validators.email]],
+      passwor:["",[Validators.required, Validators.minLength(7)]],
+      sho:["",[Validators.required, Validators.requiredTrue]]
 
     });
   }
@@ -26,7 +34,7 @@ export class LoginComponent implements OnInit {
     this.loadApi();
   }
 
-  loadApi():any{
+  loadApi(){
     const respon = {
       email:'andres@hmail.com',
       password:'1234567',
@@ -38,6 +46,14 @@ export class LoginComponent implements OnInit {
       password:respon.password,
       show:respon.show,
     })
+  }
+
+  submit(){
+    console.log(this.form.value);
+  }
+
+  submit1(){
+    console.log(this.form1.value);
   }
 
 }

@@ -2,32 +2,30 @@
 <div class="columns  is-centered" style="margin-top: 200px;">
     <div class="column is-4">
 
-<form class="box" style="border-radius: 20px;" [formGroup]="form">
+<form class="box" style="border-radius: 20px;" [formGroup]="form1" (submit)="submit()" errorTailor>
+    <h5 class="title is-5">Iniciar Sesion</h5>
 <div class="field">
-    <p class="control has-icons-left has-icons-right">
-      <input class="input" type="email" formControlName="email" placeholder="Email" style="border-radius: 5px;">
+    <p class="control has-icons-left ">
+      <input class="input" type="text" formControlName="emai" [controlErrorsTpl]="tpl"  placeholder="Email" style="border-radius: 5px;">
       <span class="icon is-small is-left">
         <i class="fas fa-envelope"></i>
       </span>
-      <span class="icon is-small is-right">
-        <i class="fas fa-check"></i>
-      </span>
     </p>
+
   </div>
+  <ng-template let-error let-text="text" #tpl > <i class="has-text-danger">{{ text }} </i></ng-template>
   <div class="field">
-    <p class="control has-icons-left has-icons-right">
-      <input class="input" formControlName="password" [type]="hide ? 'password' : 'text'" placeholder="Password" style="border-radius: 5px;">
+    <p class="control has-icons-left ">
+      <input class="input" formControlName="passwor" [controlErrorsTpl]="tplpass" [type]="hide ? 'password' : 'text'" placeholder="Password" style="border-radius: 5px;">
       <span class="icon is-small is-left">
-        <i class="fas fa-lock"></i>
-      </span>
-      <span class="icon is-small is-right">
-        <i   class="fas fa-check"></i>
+        <i class="fas fa-lock "></i>
       </span>
     </p>
   </div>
+  <ng-template let-error let-text="text" #tplpass > <i class="has-text-danger">{{ text }} </i></ng-template>
   <div class="field is-grouped is-grouped-multiline">
     <p class="control">
-    <nz-switch formControlName="show" nzCheckedChildren="shown" nzUnCheckedChildren="hidden"  (click)="hide = !hide"></nz-switch>
+    <nz-switch formControlName="sho" nzCheckedChildren="shown" nzUnCheckedChildren="hidden"  (click)="hide = !hide"></nz-switch>
     </p>
     <p class="control">
     <label for="" class="media-centered"> Show password </label>
@@ -39,7 +37,7 @@
 
   <div class="field">
     <p class="control">
-      <button [disabled]="form.invalid" class="button is-primary is-fullwidth is-outlined">
+      <button [disabled]="form1.invalid" class="button is-primary is-fullwidth is-outlined">
         <span class="icon">
           <i class="fab fa-twitter"></i>
         </span>
@@ -54,14 +52,18 @@
 
 <div>{{form.valid | json}}</div>
 
+
+
+
 <div class="column is-3">
 
  <div class="box ">
-<form nz-form  class="login-form" style="border-radius: 20px;">
+<form nz-form  class="login-form" style="border-radius: 20px;" [formGroup]="form" (submit)="submit1()" >
     <nz-form-item>
       <nz-form-control nzErrorTip="Please input your username!">
         <nz-input-group [nzSuffix]="suffixInfo" [nzPrefix]="prefixUser" style="border-radius: 5px;">
-          <input type="text" nz-input  placeholder="Username" style="border-radius: 5px;">
+          <input formControlName="email"  type="text" nz-input  placeholder="Username" style="border-radius: 5px;">
+       
         </nz-input-group>
         <ng-template #prefixUser><span nz-icon > <i class="fas fa-user"></i></span></ng-template>
         <ng-template #suffixInfo>
@@ -69,10 +71,15 @@
         </ng-template>
       </nz-form-control>
     </nz-form-item>
+
+
+   
+ 
+
     <nz-form-item>
         <nz-form-control nzErrorTip="Please input your username!">
             <nz-input-group [nzSuffix]="suffix" [nzPrefix]="prefix" style="border-radius: 5px;">
-              <input [type]="hide ? 'password' : 'text'" nz-input   style="border-radius: 5px;">
+              <input formControlName="password" [type]="hide ? 'password' : 'text'" nz-input   style="border-radius: 5px;">
             </nz-input-group>
             <ng-template #prefix><span nz-icon > <i class="fas fa-lock"></i></span></ng-template>
             <ng-template #suffix>
@@ -80,18 +87,21 @@
             </ng-template>
           </nz-form-control>
     </nz-form-item>
+
     <div nz-row class="login-form-margin">
       <div nz-col [nzSpan]="12">
-        <label nz-checkbox >
+        <label nz-checkbox formControlName="show">
           <span>Remember me</span>
         </label>
-        
       </div>
+
       <div nz-col [nzSpan]="12">
         <a class="login-form-forgot">Forgot password</a>
       </div>
+
     </div>
-    <button nz-button class="login-form-button login-form-margin is-focused" [nzType]="'primary'" style="border-radius: 5px;">Log in</button>
+
+    <button nz-button [disabled]="form.invalid" class="login-form-button login-form-margin is-focused" [nzType]="'primary'" style="border-radius: 5px;">Log in</button>
     Or
     <a>register now!</a>
   </form>

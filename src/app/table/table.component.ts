@@ -23,7 +23,7 @@ export class TableComponent implements OnInit {
 
   public readData(){
 
-    this.apiS.get('http://localhost:3000/crud/read')
+    this.apiS.get('http://localhost:3000/user')
     .subscribe((data:any) => {
 
     this.data = data

@@ -18,6 +18,9 @@ import en from '@angular/common/locales/en';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ZorroModule } from './zorro/zorro.module';
 import { LoginComponent } from './login/login.component';
+import { ErrorTailorModule } from '@ngneat/error-tailor';
+import { CookieService } from 'ngx-cookie-service';
+import { RegisterComponent } from './register/register.component';
 
 registerLocaleData(en);
 
@@ -32,6 +35,7 @@ registerLocaleData(en);
     DetailComponent,
     TableComponent,
     LoginComponent,
+    RegisterComponent,
 
   ],
   imports: [
@@ -41,9 +45,21 @@ registerLocaleData(en);
     ReactiveFormsModule,
     FormsModule,
     BrowserAnimationsModule,
-    ZorroModule
+    ZorroModule,
+    ErrorTailorModule.forRoot({
+      errors: {
+        useValue: {
+          required: 'campo requerido',
+          email: 'ingrese un email valido',
+          minlength: ({ requiredLength, actualLength }) => 
+                      `Expect ${requiredLength} but got ${actualLength}`,
+          invalidAddress: error => `Address isn't valid`
+        }
+      }
+    }),
+
   ],
-  providers: [
+  providers: [ CookieService,
     { provide: NZ_I18N, useValue: en_US }
   ],
   bootstrap: [AppComponent]

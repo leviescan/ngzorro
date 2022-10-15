@@ -1,3 +1,5 @@
+import { RegisterComponent } from './register/register.component';
+import { LoginGuard } from './login.guard';
 import { TableComponent } from './table/table.component';
 import { DetailComponent } from './detail/detail.component';
 import { NgModule } from '@angular/core';
@@ -8,7 +10,8 @@ import { LoginComponent } from './login/login.component';
 const routes: Routes = [
   { path:'', component:HomeComponent},
   { path:'login', component:LoginComponent},
-  { path:'table', component:TableComponent},
+  { path:'register', component:RegisterComponent},
+  { path:'table', component:TableComponent, canActivate:[LoginGuard]},
   { path:'post/:variable', component:DetailComponent}
 ];
 

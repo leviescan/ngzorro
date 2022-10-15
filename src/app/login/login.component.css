@@ -19,3 +19,13 @@
     margin-left: auto;
   }
 }
+
+input.ng-touched.ng-invalid{
+  border:solid 2px red;
+}
+
+input.ng-valid{
+  border: solid 2px rgb(103, 243, 157);
+
+}
+

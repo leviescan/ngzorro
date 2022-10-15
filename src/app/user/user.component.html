@@ -2,7 +2,7 @@
 <div class="card " id="ide" style="cursor:pointer; width: 280px;">
     <div class="card-image ">
       <figure class="image is-16by9  " >
-        <img [src]="infoIn.image" alt="Placeholder  image" >
+        <img [src]="infoIn.email" alt="Placeholder  image" >
       </figure>
     </div>
 
@@ -13,7 +13,7 @@
       <div class="media-content"> <!-- routerlink envio una ruta con el id al post-->
           <button class="button is-link " (click)="addNew()" [routerLink]="['post',infoIn._id]"  style="background-color: rgb(176, 155, 235); border-color: rgb(98, 5, 248); width:230px; " >Add</button>
         <p class="title is-4 has-text-link"><strong>{{infoIn.name}}</strong></p>
-        <p class="subtitle is-6">{{infoIn.description}}</p>
+        <p class="subtitle is-6">{{infoIn.city}}</p>
       </div>
     </div>
   </div>

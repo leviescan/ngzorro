@@ -1,7 +1,9 @@
 export class DataItem {
 
     name!: string;
-    description!: number;
-    image!: string;
+    email!: string;
+    password!: string;
+    city!: string;
+    createdDate!:Date;
 
 }
